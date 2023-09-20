@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formualrio de Registro</title>
+    <link rel="stylesheet" href="">
+
+</head>
+
+<body>
+
+
+    <body>
+        <h1>Formulario</h1>
+
+        <form id="form">
+            <label for="firstName">
+                <input type="text" name="firstName" id="firstName">
+            </label>
+
+            <label for="lastName">
+                <input type="text" name="lastName" id="lastName">
+            </label>
+
+            <label for="email">
+                <input type="email" name="email" id="email">
+            </label>
+
+            <label for="password">
+                <input type="password" name="password" id="password">
+            </label>
+
+            <label for="password_r">
+                <input type="password" name="password_r" id="password_r">
+            </label>
+
+            <select name="pais" id="pais">
+                <option value="" selected disabled hidden>Selecciona un pais</option>
+                <option value="argentina">Argentina</option>
+                <option value="peru">Peru</option>
+                <option value="chile">Chile</option>
+                <option value="brasil">Brasil</option>
+                <option value="colombia">Colombia</option>
+                <option value="ecuador">Ecuador</option>
+                <option value="venezuela">Venezuela</option>
+            </select>
+
+            <select name="medio_pago" id="" class="input">
+                <!-- TODO options pago  -->
+                <option value="" selected disabled hidden>Selecciona un medio de pago</option>
+                <option value="tarjeta">Tarjeta</option>
+                <option value="efectivo">Efectivo</option>
+                <option value="transferencia">Transferencia</option>
+            </select>
+
+
+            <!-- TODO datos tarjeta -->
+
+            <label for="terminos_condiciones">
+                <input type="checkbox" name="terminos_condiciones" class="input">
+            </label>
+
+            <button type="submit">¡Registrate!</button>
+            <a href="#">Ya tenes cuenta? Inicia sesión</a>
+        </form>
+    </body>
+
+</html>
+```

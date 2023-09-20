@@ -1,0 +1,44 @@
+body {
+  background-color: black;
+}
+
+#contenedorTarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background-color: #bebbbb;
+  border: 2px solid #ffffff;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  width: 250px;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.favoritoUnSelected {
+  font-size: 25px;
+  cursor: pointer;
+  color: gray;
+}
+
+.favoritoSelected {
+  color: yellow;
+}
+
+.cardSeleccionada {
+  border-color: blue;
+}
+
+.card-img-top {
+  width: 220px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
