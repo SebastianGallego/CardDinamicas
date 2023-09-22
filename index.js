@@ -96,8 +96,9 @@ function renderizarTarjetas(objetoProductos, containerDiv) {
 }
 
 //Ejemplo renderizando favoritos
-renderizarTarjetas(productos, contenedorFavoritos);
+//renderizarTarjetas(productos, contenedorFavoritos);
 
+// NodeList con todas elementos que tienen clase "card"
 const tarjetas = document.querySelectorAll(".card");
 
 let tarjetasFavoritas = [];
