@@ -2,6 +2,32 @@ body {
   background-color: black;
 }
 
+.contenedorControles {
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedorTitulo {
+  display: flex;
+  justify-content: center;
+}
+
+.tituloBusqueda {
+  justify-content: center;
+  color: #fff;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.contenedorBusqueda {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.btnMostrarFavoritos {
+  padding: 5px 12px;
+}
+
 #contenedorTarjetas {
   display: flex;
   flex-wrap: wrap;
@@ -23,6 +49,11 @@ body {
   text-align: center;
 }
 
+.card-title {
+  font-size: 25px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
 .favoritoUnSelected {
   font-size: 25px;
   cursor: pointer;
@@ -37,8 +68,18 @@ body {
   border-color: blue;
 }
 
+.card-text {
+  font-size: 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
 .card-img-top {
   width: 220px;
   border-radius: 50%;
   border: 2px solid #ffffff;
+}
+
+#containerFavoritos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

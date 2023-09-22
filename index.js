@@ -66,18 +66,22 @@ const productos = [
 
 // Contenedor de las cards
 const contenedorTarjetas = document.getElementById("contenedorTarjetas");
+const contenedorFavoritos = document.getElementById("containerFavoritos");
 
-// Recorre el array de productos y crea las tarjetas
-productos.forEach((producto) => {
-  // Crea un elemento div para la tarjeta
-  const tarjeta = document.createElement("div");
-  tarjeta.classList.add("card");
+renderizarTarjetas(productos, contenedorTarjetas);
+// Recorre el array de objetos y crea las tarjetas
+// recibe el objeto y crea las tarjetas
+function renderizarTarjetas(objetoProductos, containerDiv) {
+  objetoProductos.forEach((producto) => {
+    // Crea un elemento div para la tarjeta
+    const tarjeta = document.createElement("div");
+    tarjeta.classList.add("card");
 
-  // Crea la estructura HTML de la tarjeta usando una plantilla
-  tarjeta.innerHTML = `
+    // Crea la estructura HTML de la tarjeta usando una plantilla
+    tarjeta.innerHTML = `
 <img src="${producto.imagenUrl}" class="card-img-top" alt="${
-    producto.articulo
-  }">
+      producto.articulo
+    }">
 <div class="card-body">
 <h5 class="card-title">${producto.articulo}</h5>
 <i class="favoritoUnSelected">★</i>
@@ -86,15 +90,19 @@ productos.forEach((producto) => {
 </div>
 `;
 
-  // Agrega la tarjeta al contenedor
-  contenedorTarjetas.appendChild(tarjeta);
-});
+    // Agrega la tarjeta al contenedor
+    containerDiv.appendChild(tarjeta);
+  });
+}
+
+//Ejemplo renderizando favoritos
+renderizarTarjetas(productos, contenedorFavoritos);
 
 const tarjetas = document.querySelectorAll(".card");
 
 let tarjetasFavoritas = [];
 
-// Agrega un controlador de eventos de clic a cada tarjeta recorre todo el Objeto tarjetas
+// Atiende los eventos de clic de cada tarjeta recorre todo el Objeto tarjetas
 tarjetas.forEach((tarjeta) => {
   const icono = tarjeta.querySelector(".favoritoUnSelected");
 
@@ -109,7 +117,7 @@ tarjetas.forEach((tarjeta) => {
     }
   });
 
-  // Agrega un controlador de eventos de clic al icono de favorito
+  // Atiende los eventos de clic al icono de favorito
   icono.addEventListener("click", (event) => {
     // Cambia el estado del icono (activo o inactivo) al hacer clic en él
     icono.classList.toggle("favoritoSelected");
@@ -134,4 +142,37 @@ tarjetas.forEach((tarjeta) => {
 // Función personalizada que se dispara al hacer clic en una tarjeta
 function funcionPersonalizada(tarjeta) {
   console.log("Tarjeta seleccionada:", tarjeta.textContent);
+}
+
+function mostrarProductosFavoritos() {
+  const tarjetasFavoritasObjeto = obtenerTarjetasFavoritas();
+  console.log(tarjetasFavoritasObjeto);
+}
+
+const btnMostrarFavoritos = document.getElementById("btnMostrarFavoritos");
+
+btnMostrarFavoritos.addEventListener("click", () => {
+  mostrarProductosFavoritos(); // Llama a la función para mostrar productos favoritos
+});
+
+function obtenerTarjetasFavoritas() {
+  const tarjetasFavoritasObjeto = {};
+
+  // Recorre el array de tarjetas favoritas
+  tarjetasFavoritas.forEach((tarjeta, index) => {
+    // Busca la tarjeta en el objeto 'productos' por su índice
+    const producto = productos[index];
+
+    // Crea una clave única para cada tarjeta favorita (por ejemplo, el índice)
+    const clave = `tarjeta${index}`;
+
+    // Almacena toda la información de la tarjeta favorita en el objeto
+    tarjetasFavoritasObjeto[clave] = {
+      articulo: producto.articulo,
+      detalle: producto.detalle,
+      precio: producto.precio,
+      imagenUrl: producto.imagenUrl,
+    };
+  });
+  console.log(tarjetasFavoritasObjeto);
 }
